@@ -10,4 +10,18 @@ client = Twitter::REST::Client.new do |config|
   config.access_token_secret = "XIZloOTdG78K7E5fUjsB3BH00juJQLXpcOsZfuUPm9Th0"
 end
 
-client.update("Having a single tweet does not a Twitter bot make")
+# client.update("Having a single tweet does not a Twitter bot make")
+
+# topics = ["coffee", "tea"]
+# client.filter(:track => topics.join(",")) do |object|
+#   puts object.text if object.is_a?(Twitter::Tweet)
+# end
+
+# client.sample do |object|
+#   puts object.text if object.is_a?(Twitter::Tweet)
+# end
+
+client.search("to:comcast no internet").each do |tweet|
+  puts tweet.user.screen_name
+  puts tweet.text
+end
